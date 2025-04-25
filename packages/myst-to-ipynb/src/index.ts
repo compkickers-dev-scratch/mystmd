@@ -24,13 +24,14 @@ export function writeIpynb(file: VFile, node: Root, frontmatter?: PageFrontmatte
         source: sourceToStringList(code.value),
       };
     }
-    const md = writeMd(file, { type: 'root', children: block.children as any }).result as string;
+    const md = writeMd(file, { type: 'root', children: [block] }).result as string;
     return {
       cell_type: 'markdown',
       metadata: {},
       source: sourceToStringList(md),
     };
   });
+
   const ipynb = {
     cells,
     metadata: {
@@ -41,6 +42,7 @@ export function writeIpynb(file: VFile, node: Root, frontmatter?: PageFrontmatte
     nbformat: 4,
     nbformat_minor: 2,
   };
+
   file.result = JSON.stringify(ipynb, null, 2);
   return file;
 }
