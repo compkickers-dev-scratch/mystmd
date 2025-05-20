@@ -1,5 +1,12 @@
 # myst-cli
 
+## 1.3.28
+
+### Patch Changes
+
+- Updated dependencies [4b7c81a5]
+  - myst-templates@1.0.25
+
 ## 1.3.27
 
 ### Patch Changes
